@@ -107,7 +107,7 @@ export function UploadDocumentModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[550px] bg-popover/95 backdrop-blur-2xl border-border rounded-[2.5rem] shadow-2xl p-8">
+      <DialogContent className="sm:max-w-[550px] bg-popover/95 backdrop-blur-2xl border-border rounded-xl shadow-2xl p-8">
         <DialogHeader className="space-y-3 text-center sm:text-left">
           <div className="size-14 rounded-xl bg-primary/10 flex items-center justify-center mb-2 mx-auto sm:mx-0">
             <Upload className="size-7 text-primary" />
@@ -191,13 +191,13 @@ export function UploadDocumentModal({
                   toast.error(`Upload failed: ${error.message}`);
                 }}
                 appearance={{
-                  container: "border-2 border-dashed border-border/60 bg-muted/20 rounded-[2rem] h-48 hover:border-primary/50 hover:bg-primary/5 transition-all",
-                  label: "text-primary font-black uppercase tracking-widest text-xs",
-                  allowedContent: "text-[10px] font-bold text-muted-foreground/60 uppercase tracking-tighter",
-                  button: "bg-primary text-white font-black rounded-xl px-8 h-10 shadow-lg shadow-primary/20 ut-uploading:bg-primary/50 ut-uploading:cursor-not-allowed",
+                  container: "border border-dashed border-border bg-card/50 rounded-2xl h-52 hover:border-primary hover:bg-primary/5 transition-all duration-300",
+                  label: "text-foreground font-semibold text-sm",
+                  allowedContent: "text-xs text-muted-foreground mt-1",
+                  button: "bg-primary text-primary-foreground font-medium rounded-lg px-6 py-2 text-sm shadow-sm hover:bg-primary/90 transition-colors mt-4",
                 }}
                 content={{
-                  label: "Drop PDF/Images here or click to browse",
+                  label: "Drag & drop files here",
                 }}
               />
             </div>
