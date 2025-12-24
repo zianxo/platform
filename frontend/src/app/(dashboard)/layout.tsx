@@ -1,5 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { ClientProvider } from "@/components/providers/client-provider";
 import { SecondarySidebar, SecondarySidebarSkeleton } from "@/components/secondary-sidebar";
 import { Suspense } from "react";
@@ -18,6 +18,10 @@ export default function DashboardLayout({
               <SecondarySidebar />
             </Suspense>
             <main className="flex-1 overflow-y-auto bg-background p-8">
+                <div className="md:hidden flex items-center gap-2 mb-6">
+                    <SidebarTrigger />
+                    <span className="font-bold text-lg">Talent Land</span>
+                </div>
                 {children}
             </main>
         </div>
