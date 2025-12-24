@@ -1,0 +1,30 @@
+services:
+  # PostgreSQL Database
+  - type: pserv
+    name: platform-db
+    env: docker
+    plan: starter
+    region: frankfurt
+    databaseName: platform
+    databaseUser: platform_user
+
+  # Backend API Service
+  - type: web
+    name: platform-backend
+    env: docker
+    region: frankfurt
+    plan: starter
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: platform-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 8080
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false  # Set manually in Render dashboard with your Vercel URL
+    healthCheckPath: /health
